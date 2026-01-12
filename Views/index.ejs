@@ -4,11 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/index.css">
   <title>Mini message board</title>
 </head>
 
 <body>
+  <%-include('navbar') %>
+    <div class="board">
+      <% messages.forEach((m)=> { %>
+        <article class="message">
+          <header class="message-header">
+            <h4 class="message-user normalCursor">
+              <%= m.user %>
+            </h4>
+            <time class="message-date normalCursor">
+              <%= m.added.toLocaleString() %>
+            </time>
+          </header>
 
+          <p class="message-text normalCursor">
+            <%= m.text %>
+          </p>
+        </article>
+        <% }) %>
+    </div>
+
+
+    </div>
+    <%-include('footer') %>
 </body>
 
 </html>

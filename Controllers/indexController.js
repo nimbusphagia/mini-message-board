@@ -1,6 +1,11 @@
 import messages from '../db.js';
 const home = (req, res) => {
-  //res.render("index", { messages: messages });
-  res.send('Hello Man')
+  const orderedMessages = [...messages].sort(
+    (a, b) => b.added - a.added
+  );
+  res.render("index", {
+    messages: orderedMessages,
+    currentPath: req.path,
+  });
 }
 export { home };
