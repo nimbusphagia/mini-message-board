@@ -60,7 +60,8 @@ const messages = [
     added: new Date()
   }
 ];
+const getMessageById = (id) => messages.find(msg => msg.id === id);
 
-export default messages;
+export { messages, getMessageById };
 
 

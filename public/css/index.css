@@ -14,6 +14,7 @@ body {
   margin: 0;
   padding: 2rem;
   color: var(--text-main);
+  min-height: 100vh;
 }
 
 .page-title {
@@ -78,15 +79,17 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+.message-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .message:hover {
   cursor: inherit;
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.normalCursor:hover {
-  cursor: default;
 
-}
 
 .message:last-child {
   border-bottom: none;
@@ -199,4 +202,68 @@ body {
 
 .submit-btn:hover {
   text-decoration: underline;
+}
+
+/* MESSAGE*/
+/* MESSAGE DETAIL PAGE */
+.message-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  height: 100%;
+}
+
+/* Detail container */
+.message-detail {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1rem 2.25rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  margin: 30px 0 100px 0;
+}
+
+/* Header */
+.message-detail-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* User name */
+.message-detail-user {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Date */
+.message-detail-date {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Message text */
+.message-detail-text {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #374151;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+/* Back link */
+.back-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--accent);
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+}
+
+.back-link:hover {
+  opacity: 1;
 }

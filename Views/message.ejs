@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/index.css" />
+  <title>Message by <%= message.user %>
+  </title>
+</head>
+
+<body>
+  <%- include('navbar') %>
+
+    <main class="message-page">
+      <article class="message-detail">
+        <header class="message-detail-header">
+          <h2 class="message-detail-user">
+            <%= message.user %>
+          </h2>
+
+          <time class="message-detail-date">
+            <%= message.added.toLocaleString() %>
+          </time>
+        </header>
+
+        <p class="message-detail-text">
+          <%= message.text %>
+        </p>
+      </article>
+
+      <a href="/" class="back-link">← Back to all messages</a>
+    </main>
+
+    <%- include('footer') %>
+</body>
+
+</html>

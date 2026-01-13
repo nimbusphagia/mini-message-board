@@ -2,7 +2,8 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import indexRouter from './Routes/indexRouter.js';
-import messageRouter from './Routes/messageRouter.js'
+import formRouter from './Routes/formRouter.js'
+import messageRouter from './Routes/messageRouter.js';
 
 const app = express();
 const port = process.env.PORT;
@@ -15,6 +16,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(indexRouter);
+app.use(formRouter);
 app.use(messageRouter);
 
 app.listen(port, (err) => {

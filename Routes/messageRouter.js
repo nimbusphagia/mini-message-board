@@ -1,9 +1,8 @@
-import express from 'express';
-import { form, addMessage } from '../Controllers/messageController.js';
+import express from "express";
+import message from '../Controllers/messageController.js';
 
 const messageRouter = express.Router();
 
-messageRouter.get('/new', form);
-messageRouter.post('/new', addMessage)
+messageRouter.get('/messages/:messageId', message)
 
 export default messageRouter;

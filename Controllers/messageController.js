@@ -1,23 +1,8 @@
-import Message from '../Models/Message.js';
-import db from '../db.js';
+import { messages, getMessageById } from "../db.js";
 
-const form = (req, res) => {
-  res.render("form", { currentPath: req.path });
+const message = (req, res) => {
+  const { messageId } = req.params;
+  const message = getMessageById(messageId);
+  res.render('message', { message: message, currentPath: req.path });
 }
-const addMessage = (req, res) => {
-  const { text, user } = req.body;
-
-  if (!text || !user) {
-    return res.status(400).render("form", {
-      currentPath: req.path,
-      error: "Both fields are required"
-    });
-  }
-
-  const message = new Message(text.trim(), user.trim());
-  db.push(message);
-
-  res.redirect("/");
-};
-
-export { form, addMessage };
+export default message;

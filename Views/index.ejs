@@ -12,20 +12,22 @@
   <%-include('navbar') %>
     <div class="board">
       <% messages.forEach((m)=> { %>
-        <article class="message">
-          <header class="message-header">
-            <h4 class="message-user normalCursor">
-              <%= m.user %>
-            </h4>
-            <time class="message-date normalCursor">
-              <%= m.added.toLocaleString() %>
-            </time>
-          </header>
+        <a href="/messages/<%= m.id %>" class="message-link">
+          <article class="message">
+            <header class="message-header">
+              <h4 class="message-user normalCursor">
+                <%= m.user %>
+              </h4>
+              <time class="message-date normalCursor">
+                <%= m.added.toLocaleString() %>
+              </time>
+            </header>
 
-          <p class="message-text normalCursor">
-            <%= m.text %>
-          </p>
-        </article>
+            <p class="message-text normalCursor">
+              <%= m.text %>
+            </p>
+          </article>
+        </a>
         <% }) %>
     </div>
 
