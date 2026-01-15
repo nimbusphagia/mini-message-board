@@ -1,23 +1,26 @@
-import Message from '../Models/Message.js';
-import { messages } from '../db.js';
+import { validationResult } from "express-validator";
+import { addMessage } from "../db/index.js";
 
 const form = (req, res) => {
-  res.render("form", { currentPath: req.path });
-}
-const addMessage = (req, res) => {
-  const { text, user } = req.body;
+  res.render("form", { currentPath: req.path, errors: null });
+};
 
-  if (!text || !user) {
+async function submitMessage(req, res) {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
     return res.status(400).render("form", {
       currentPath: req.path,
-      error: "Both fields are required"
+      errors: errors.array(),
+      values: req.body,
     });
   }
 
-  const message = new Message(text.trim(), user.trim());
-  messages.push(message);
+  const { user, text } = req.body;
 
+  await addMessage(user, text);
   res.redirect("/");
-};
+}
 
-export { form, addMessage };
+export { form, submitMessage };
+

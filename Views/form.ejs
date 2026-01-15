@@ -13,22 +13,31 @@
 
     <main class="form-page">
       <h1 class="page-title">Leave a note</h1>
+      <% if (errors) { %>
+        <ul>
+          <% errors.forEach(err=> { %>
+            <li class="errorIndication">
+              <%= err.msg %>
+            </li>
+            <% }) %>
+        </ul>
+        <% } %>
 
-      <form action="/new" method="POST" class="message-form">
-        <div class="form-group">
-          <label for="user">Name</label>
-          <input type="text" id="user" name="user" placeholder="Your name" required />
-        </div>
+          <form action="/new" method="POST" class="message-form">
+            <div class="form-group">
+              <label for="user">Name</label>
+              <input type="text" id="user" name="user" placeholder="Your name" required />
+            </div>
 
-        <div class="form-group">
-          <label for="text">Message</label>
-          <textarea id="text" name="text" placeholder="Write whatever you want" rows="5" required></textarea>
-        </div>
+            <div class="form-group">
+              <label for="text">Message</label>
+              <textarea id="text" name="text" placeholder="Write whatever you want" rows="5" required></textarea>
+            </div>
 
-        <button type="submit" class="submit-btn">
-          Post
-        </button>
-      </form>
+            <button type="submit" class="submit-btn">
+              Post
+            </button>
+          </form>
     </main>
 
     <%- include("footer") %>
